@@ -1,7 +1,7 @@
 project "ImGui"
 	kind "StaticLib"
 	language "C++"
-    staticruntime "off"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -13,6 +13,7 @@ project "ImGui"
 		"imgui.cpp",
 		"imgui_draw.cpp",
 		"imgui_internal.h",
+		"imgui_tables.cpp",
 		"imgui_widgets.cpp",
 		"imstb_rectpack.h",
 		"imstb_textedit.h",
