@@ -1,7 +1,13 @@
 project "ImGui"
+	toolset "v143"
 	kind "StaticLib"
 	language "C++"
     staticruntime "off"
+
+	flags
+	{
+		"MultiProcessorCompile"
+	}
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
