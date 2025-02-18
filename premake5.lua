@@ -1,13 +1,10 @@
+-- Grab Vulkan SDK path
+VULKAN_SDK = os.getenv("VULKAN_SDK")
+
 project "ImGui"
-	toolset "v143"
 	kind "StaticLib"
 	language "C++"
     staticruntime "off"
-
-	flags
-	{
-		"MultiProcessorCompile"
-	}
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -25,6 +22,16 @@ project "ImGui"
 		"imstb_textedit.h",
 		"imstb_truetype.h",
 		"imgui_demo.cpp"
+	}
+	
+	includedirs
+	{
+		"%{VULKAN_SDK}/Include/"
+	}
+	
+	links
+	{
+		"%{VULKAN_SDK}/Lib/vulkan-1.lib"
 	}
 
 	filter "system:windows"
